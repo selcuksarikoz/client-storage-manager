@@ -3,6 +3,9 @@ import dts from 'vite-plugin-dts';
 import { resolve } from 'path';
 
 export default defineConfig({
+    test: {
+        environment: 'jsdom', // Use jsdom for a browser-like environment
+    },
     build: {
         lib: {
             entry: resolve(__dirname, 'src/index.ts'), // Your main entry point file

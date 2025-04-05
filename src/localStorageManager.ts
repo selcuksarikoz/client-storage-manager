@@ -1,9 +1,3 @@
-
-
-interface LocalStorageManagerProps {
-
-}
-
 class LocalStorageManager {
     private _storages;
 

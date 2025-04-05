@@ -1,5 +1,5 @@
-import { localStorageManager } from "./localStorage.ts";
-import { sessionStorageManager } from "./sessionStorage.ts";
+import { localStorageManager } from "./localStorageManager.ts";
+import { sessionStorageManager } from "./sessionStorageManager.ts";
 
 export {
     localStorageManager,

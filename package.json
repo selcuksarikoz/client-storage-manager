@@ -15,16 +15,19 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "test": "vitest"
   },
   "devDependencies": {
+    "jsdom": "^26.0.0",
     "typescript": "~5.7.2",
     "vite": "^6.2.0",
-    "vite-plugin-dts": "^4.5.3"
+    "vite-plugin-dts": "^4.5.3",
+    "vitest": "^3.1.1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/your-username/your-repo-name.git"
+    "url": "git+https://github.com/selcuksarikoz/client-storage-manager.git"
   },
   "keywords": [
     "localStorage",
@@ -34,10 +37,10 @@
     "typescript",
     "utility"
   ],
-  "author": "Your Name <your.email@example.com>",
+  "author": "Selcuk Sarikoz <benimpostahesabim@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/your-username/your-repo-name/issues"
+    "url": "https://github.com/selcuksarikoz/client-storage-manager/issues"
   },
-  "homepage": "https://github.com/your-username/your-repo-name#readme"
+  "homepage": "https://github.com/selcuksarikoz/client-storage-manager#readme"
 }

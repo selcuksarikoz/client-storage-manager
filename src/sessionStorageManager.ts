@@ -1,10 +1,3 @@
-interface SessionStorageManagerProps {
-    // Define the keys and their expected types for SessionStorage here
-    // Example:
-    // userId?: string;
-    // authToken?: string;
-}
-
 class SessionStorageManager {
     private _storages: Storage | undefined;
 

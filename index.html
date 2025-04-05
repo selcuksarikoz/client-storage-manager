@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LocalStorage and SessionStorage Example</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 20px;
+    }
+    button {
+      padding: 8px 15px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<h1>LocalStorage and SessionStorage Example</h1>
+
+<div>
+  <h2>LocalStorage</h2>
+  <button id="setLocalStorageUsername">Set Username (JohnDoe)</button>
+  <button id="getLocalStorageUsername">Get Username</button>
+  <button id="setLocalStorageTheme">Set Theme (Blue/Gray)</button>
+  <button id="getLocalStorageTheme">Get Theme</button>
+  <button id="deleteLocalStorageUsername">Delete Username</button>
+  <button id="clearLocalStorage">Clear All Local Storage</button>
+  <div id="localStorageOutput"></div>
+</div>
+
+<div>
+  <h2>SessionStorage</h2>
+  <button id="setSessionStorageId">Set Session ID (abcdef123)</button>
+  <button id="getSessionStorageId">Get Session ID</button>
+  <button id="setSessionStorageLoggedIn">Set Logged In (true)</button>
+  <button id="getSessionStorageLoggedIn">Get Logged In</button>
+  <button id="deleteSessionStorageId">Delete Session ID</button>
+  <button id="clearSessionStorage">Clear All Session Storage</button>
+  <div id="sessionStorageOutput"></div>
+</div>
+
+<script type="module">
+  import { localStorageManager, sessionStorageManager } from "./src/index.ts";
+
+  const localStorageOutput = document.getElementById("localStorageOutput");
+  const sessionStorageOutput = document.getElementById("sessionStorageOutput");
+
+  // LocalStorage Event Listeners
+  document.getElementById("setLocalStorageUsername")?.addEventListener("click", () => {
+    localStorageManager.add("username", "JohnDoe");
+    localStorageOutput.innerText = "Username set in LocalStorage.";
+  });
+
+  document.getElementById("getLocalStorageUsername")?.addEventListener("click", () => {
+    const username = localStorageManager.get("username");
+    localStorageOutput.innerText = `Username from LocalStorage: ${username}`;
+  });
+
+  document.getElementById("setLocalStorageTheme")?.addEventListener("click", () => {
+    localStorageManager.add("theme", { primary: "blue", secondary: "gray" });
+    localStorageOutput.innerText = "Theme set in LocalStorage.";
+  });
+
+  document.getElementById("getLocalStorageTheme")?.addEventListener("click", () => {
+    const theme = localStorageManager.get("theme");
+    localStorageOutput.innerText = `Theme from LocalStorage: ${JSON.stringify(theme)}`;
+  });
+
+  document.getElementById("deleteLocalStorageUsername")?.addEventListener("click", () => {
+    localStorageManager.delete("username");
+    localStorageOutput.innerText = "Username deleted from LocalStorage.";
+  });
+
+  document.getElementById("clearLocalStorage")?.addEventListener("click", () => {
+    localStorageManager.clearAllKeys();
+    localStorageOutput.innerText = "All data cleared from LocalStorage.";
+  });
+
+  // SessionStorage Event Listeners
+  document.getElementById("setSessionStorageId")?.addEventListener("click", () => {
+    sessionStorageManager.add("sessionId", "abcdef123");
+    sessionStorageOutput.innerText = "Session ID set in SessionStorage.";
+  });
+
+  document.getElementById("getSessionStorageId")?.addEventListener("click", () => {
+    const sessionId = sessionStorageManager.get("sessionId");
+    sessionStorageOutput.innerText = `Session ID from SessionStorage: ${sessionId}`;
+  });
+
+  document.getElementById("setSessionStorageLoggedIn")?.addEventListener("click", () => {
+    sessionStorageManager.add("isLoggedIn", true);
+    sessionStorageOutput.innerText = "Logged In status set in SessionStorage.";
+  });
+
+  document.getElementById("getSessionStorageLoggedIn")?.addEventListener("click", () => {
+    const isLoggedIn = sessionStorageManager.get("isLoggedIn");
+    sessionStorageOutput.innerText = `Logged In from SessionStorage: ${isLoggedIn}`;
+  });
+
+  document.getElementById("deleteSessionStorageId")?.addEventListener("click", () => {
+    sessionStorageManager.delete("sessionId");
+    sessionStorageOutput.innerText = "Session ID deleted from SessionStorage.";
+  });
+
+  document.getElementById("clearSessionStorage")?.addEventListener("click", () => {
+    sessionStorageManager.clearAllKeys();
+    sessionStorageOutput.innerText = "All data cleared from SessionStorage.";
+  });
+</script>
+</body>
+</html>

@@ -4,35 +4,32 @@ import { resolve } from 'path';
 
 export default defineConfig({
     test: {
-        environment: 'jsdom', // Use jsdom for a browser-like environment
+        environment: 'jsdom',
     },
     build: {
         lib: {
-            entry: resolve(__dirname, 'src/index.ts'), // Your main entry point file
-            name: 'ClientStorageManager', // The name of your library (not really used for ESM output)
-            fileName: 'index', // The name of the generated output file (without extension)
-            formats: ['es'], // Output only as ES module
+            entry: resolve(__dirname, 'src/index.ts'),
+            name: 'ClientStorageManager',
+            fileName: 'index',
+            formats: ['es'],
         },
         rollupOptions: {
-            // Externalize dependencies that you don't want to bundle
-            // into your library.
-            // external: [],
+            input: {
+                main: resolve(__dirname, 'index.html'), // Add your index.html as an input
+                lib: resolve(__dirname, 'src/index.ts'), // Keep your library entry
+            },
             output: {
-                // Since we are building as an ES library, we don't need to configure globals.
-                // Provide global variables to use in the UMD build
-                // when proper external are not used.
-                // globals: {},
-                dir: resolve(__dirname, 'dist'), // Output directory
-                entryFileNames: '[name].js', // Output file name will be index.js
+                dir: resolve(__dirname, 'dist'),
+                entryFileNames: '[name].js',
             },
         },
-        outDir: 'dist', // Ensure this matches rollupOptions.output.dir for consistency
-        emptyOutDir: true, // Clean the output directory before each build
+        outDir: 'dist',
+        emptyOutDir: true,
     },
     plugins: [
         dts({
-            insertTypesEntry: true, // Generate a .d.ts entry file
-            outDir: 'dist', // Ensure this matches build.outDir
+            insertTypesEntry: true,
+            outDir: 'dist',
         }),
     ],
 });

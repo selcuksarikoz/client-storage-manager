@@ -1,0 +1,6 @@
+/src
+/tests
+vite.config.ts
+tsconfig.json
+index.html
+.idea

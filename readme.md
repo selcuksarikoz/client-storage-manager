@@ -1,11 +1,9 @@
-```markdown
 # LocalStorage and SessionStorage Managers with Chainable API
 
-[![NPM Version](https://img.shields.io/npm/v/client-storage-manager)](https://www.npmjs.com/package/@kozmonot/client-storage-manager)
-[![License](https://img.shields.io/npm/l/client-storage-manager)](https://github.com/selcuksarikoz/client-storage-manager/blob/main/LICENSE)
+[![NPM Version](https://img.shields.io/npm/v/@kozmonot/client-storage-manager)](https://www.npmjs.com/package/@kozmonot/client-storage-manager)
+[![License](https://img.shields.io/npm/l/@kozmonot/client-storage-manager)](https://github.com/selcuksarikoz/client-storage-manager/blob/main/LICENSE)
 
 A simple and type-safe utility for managing `localStorage` and `sessionStorage` in web applications. This library provides a chainable API for adding, getting, deleting, and clearing data.
-```
 
 ## Installation
 
@@ -25,6 +23,25 @@ Import the `localStorageManager` and `sessionStorageManager` instances into your
 
 ```typescript
 import { localStorageManager, sessionStorageManager } from '@kozmonot/client-storage-manager';
+
+```
+
+### Types
+
+add SessionStorageManagerProps and LocalStorageManagerProps in vite-env.d.ts or your current @types files so that you are able to use keys with auto-complete
+
+```typescript
+export declare global {
+    interface SessionStorageManagerProps {
+        sessionId: string;
+        isLoggedIn: boolean;
+    }
+
+    interface LocalStorageManagerProps {
+        username: string;
+        theme: { primary: string; secondary: string };
+    }
+}
 ```
 
 ### LocalStorage Examples

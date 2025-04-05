@@ -1,0 +1,8 @@
+/src
+/tests
+vite.config.ts
+tsconfig.json
+package-lock.json
+yarn.lock
+.gitignore
+.idea

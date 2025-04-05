@@ -28,8 +28,8 @@ Import the `localStorageManager`, `sessionStorageManager`, and `IndexedDBManager
 JavaScript or TypeScript files:
 
 ```typescript
-import { localStorageManager, sessionStorageManager } from '@kozmonot/client-storage-manager';
-import { IndexedDBManager, IDBConfig } from '@kozmonot/client-storage-manager/src/indexeddb'; // Adjust path as needed
+import { localStorageManager, sessionStorageManager, IndexedDBManager } from '@kozmonot/client-storage-manager';
+import type { IDBConfig } from '@kozmonot/client-storage-manager/src/indexeddb'; // Adjust path as needed
 ```
 
 ### Types

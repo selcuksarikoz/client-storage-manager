@@ -1,14 +1,14 @@
 // tests/localStorage.test.ts
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { localStorageManager } from "../src";
 
 describe('LocalStorageManager', () => {
     beforeEach(() => {
-        localStorage.clear(); // Clear localStorage before each test
+        localStorage?.clear(); // Clear localStorage before each test
     });
 
     afterEach(() => {
-        localStorage.clear(); // Ensure localStorage is clear after each test
+        localStorage?.clear(); // Ensure localStorage is clear after each test
     });
 
     it('should add and get a string item', () => {

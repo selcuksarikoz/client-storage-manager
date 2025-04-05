@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LocalStorage and SessionStorage Example</title>
+  <title>LocalStorage, SessionStorage, and IndexedDB Example</title>
   <style>
     body {
       font-family: sans-serif;
@@ -19,7 +19,7 @@
   </style>
 </head>
 <body>
-<h1>LocalStorage and SessionStorage Example</h1>
+<h1>LocalStorage, SessionStorage, and IndexedDB Example</h1>
 
 <div>
   <h2>LocalStorage</h2>
@@ -43,11 +43,23 @@
   <div id="sessionStorageOutput"></div>
 </div>
 
+<div>
+  <h2>IndexedDB</h2>
+  <button id="addIndexedDBItem">Add Item (ID: 1, Name: 'Test')</button>
+  <button id="getIndexedDBItem">Get Item (ID: 1)</button>
+  <button id="deleteIndexedDBItem">Delete Item (ID: 1)</button>
+  <button id="getAllIndexedDBItems">Get All Items</button>
+  <button id="clearIndexedDB">Clear All IndexedDB Data</button>
+  <div id="indexedDBOutput"></div>
+</div>
+
 <script type="module">
   import { localStorageManager, sessionStorageManager } from "./src/index.ts";
+  import { IndexedDBManager } from "./src/indexedDbManager.ts"; // Assuming indexeddb.ts is in the same src folder
 
   const localStorageOutput = document.getElementById("localStorageOutput");
   const sessionStorageOutput = document.getElementById("sessionStorageOutput");
+  const indexedDBOutput = document.getElementById("indexedDBOutput");
 
   // LocalStorage Event Listeners
   document.getElementById("setLocalStorageUsername")?.addEventListener("click", () => {
@@ -109,6 +121,61 @@
   document.getElementById("clearSessionStorage")?.addEventListener("click", () => {
     sessionStorageManager.clearAllKeys();
     sessionStorageOutput.innerText = "All data cleared from SessionStorage.";
+  });
+
+  // IndexedDB Setup
+  const dbConfig = {
+    dbName: 'myAppDataBase',
+    version: 1,
+    storeName: 'items',
+    keyPath: 'id'
+  };
+  const indexedDBManager = new IndexedDBManager(dbConfig);
+
+  // IndexedDB Event Listeners
+  document.getElementById("addIndexedDBItem")?.addEventListener("click", async () => {
+    try {
+      const result = await indexedDBManager.add({id: 1, name: 'Test'});
+      indexedDBOutput.innerText = `Item added to IndexedDB with key: ${result}`;
+    } catch (error) {
+      indexedDBOutput.innerText = `Error adding to IndexedDB: ${error}`;
+    }
+  });
+
+  document.getElementById("getIndexedDBItem")?.addEventListener("click", async () => {
+    try {
+      const item = await indexedDBManager.get(1);
+      indexedDBOutput.innerText = `Item from IndexedDB: ${JSON.stringify(item)}`;
+    } catch (error) {
+      indexedDBOutput.innerText = `Error getting from IndexedDB: ${error}`;
+    }
+  });
+
+  document.getElementById("deleteIndexedDBItem")?.addEventListener("click", async () => {
+    try {
+      await indexedDBManager.delete(1);
+      indexedDBOutput.innerText = `Item with ID 1 deleted from IndexedDB.`;
+    } catch (error) {
+      indexedDBOutput.innerText = `Error deleting from IndexedDB: ${error}`;
+    }
+  });
+
+  document.getElementById("getAllIndexedDBItems")?.addEventListener("click", async () => {
+    try {
+      const allItems = await indexedDBManager.getAll();
+      indexedDBOutput.innerText = `All items from IndexedDB: ${JSON.stringify(allItems)}`;
+    } catch (error) {
+      indexedDBOutput.innerText = `Error getting all items from IndexedDB: ${error}`;
+    }
+  });
+
+  document.getElementById("clearIndexedDB")?.addEventListener("click", async () => {
+    try {
+      await indexedDBManager.clearAll();
+      indexedDBOutput.innerText = `All data cleared from IndexedDB.`;
+    } catch (error) {
+      indexedDBOutput.innerText = `Error clearing IndexedDB: ${error}`;
+    }
   });
 </script>
 </body>

@@ -1,4 +1,5 @@
 /// <reference types="vite/client" />
+
 export declare global {
     interface SessionStorageManagerProps {
         sessionId: string;
@@ -8,5 +9,9 @@ export declare global {
     interface LocalStorageManagerProps {
         username: string;
         theme: { primary: string; secondary: string };
+    }
+
+    interface IndexedDBManagerProps {
+        [key: string]: { title: string, description: string, status: boolean };
     }
 }

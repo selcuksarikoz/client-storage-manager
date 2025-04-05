@@ -1,7 +1,7 @@
 {
   "name": "@kozmonot/client-storage-manager",
-  "version": "1.0.3",
-  "description": "A simple and type-safe utility for managing localStorage and sessionStorage with a chainable API.",
+  "version": "1.1.0",
+  "description": "A simple and type-safe utility for managing localStorage, sessionStorage, and IndexedDB in web applications",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -19,6 +19,7 @@
     "test": "vitest"
   },
   "devDependencies": {
+    "@types/node": "^22.14.0",
     "jsdom": "^26.0.0",
     "typescript": "~5.7.2",
     "vite": "^6.2.0",

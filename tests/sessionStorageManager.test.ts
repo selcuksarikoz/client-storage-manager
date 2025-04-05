@@ -1,14 +1,14 @@
 // tests/sessionStorage.test.ts
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { sessionStorageManager } from "../src";
 
 describe('SessionStorageManager', () => {
     beforeEach(() => {
-        sessionStorage.clear(); // Clear sessionStorage before each test
+        sessionStorage?.clear(); // Clear sessionStorage before each test
     });
 
     afterEach(() => {
-        sessionStorage.clear(); // Ensure sessionStorage is clear after each test
+        sessionStorage?.clear(); // Ensure sessionStorage is clear after each test
     });
 
     it('should add and get a string item', () => {

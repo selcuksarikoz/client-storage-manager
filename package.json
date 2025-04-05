@@ -1,6 +1,6 @@
 {
   "name": "@kozmonot/client-storage-manager",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple and type-safe utility for managing localStorage and sessionStorage with a chainable API.",
   "type": "module",
   "main": "./dist/index.js",

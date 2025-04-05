@@ -5,6 +5,10 @@
 
 A simple and type-safe utility for managing `localStorage` and `sessionStorage` in web applications. This library provides a chainable API for adding, getting, deleting, and clearing data.
 
+
+## DEMO
+https://client-storage-manager.vercel.app/
+
 ## Installation
 
 npm:

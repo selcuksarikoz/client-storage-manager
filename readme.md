@@ -1,10 +1,8 @@
 ```markdown
 # LocalStorage and SessionStorage Managers with Chainable API
 
-[![NPM Version](https://img.shields.io/npm/v/client-storage-manager)](https://www.npmjs.com/package/client-storage-manager)
+[![NPM Version](https://img.shields.io/npm/v/client-storage-manager)](https://www.npmjs.com/package/@kozmonot/client-storage-manager)
 [![License](https://img.shields.io/npm/l/client-storage-manager)](https://github.com/selcuksarikoz/client-storage-manager/blob/main/LICENSE)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/selcuksarikoz/client-storage-manager/main.yml?branch=main)](https://github.com/selcuksarikoz/client-storage-manager/actions/workflows/main.yml)
-[![Code Coverage](https://img.shields.io/codecov/c/github/selcuksarikoz/client-storage-manager)](https://codecov.io/gh/selcuksarikoz/client-storage-manager)
 
 A simple and type-safe utility for managing `localStorage` and `sessionStorage` in web applications. This library provides a chainable API for adding, getting, deleting, and clearing data.
 ```
